@@ -22,9 +22,14 @@ function countLetters(counter, sample_text){
   }
   var chars = sample_text.toLowerCase().split('');
 
-    counter[chars[0]] += 1;
-    chars.shift();
-    chars = chars.join("");
+    if(chars[0] in counter){
+      counter[chars[0]] += 1;
+      chars.shift();
+      chars = chars.join("");
+    } else {
+      chars.shift();
+      chars = chars.join("");
+    }
 
   return countLetters(counter, chars);
 }
